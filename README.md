@@ -30,13 +30,13 @@ This Django project is structured to manage records associated with user account
 1. **Clone the repository:**
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/henalon0/django-crm-project
    ```
 
 2. **Navigate to the project directory:**
 
    ```bash
-   cd <project-directory>
+   cd django-crm-project
    ```
 
 3. **Create a virtual environment:**
