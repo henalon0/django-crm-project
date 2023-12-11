@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="vh-100 d-flex flex-column align-items-center justify-content-center">
+    <h1 class="mt-4">Login</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+          <div class="mt-4 alert {{ message.tags }} alert-dismissible fade show user-select-none" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+        {% endfor %}
+    {% endif %}
+    
+    <form action={% url "login" %} method="post" class="d-flex flex-column align-items-center justify-content-center">
+        {% csrf_token %}
+        <input class="mt-4 form-control" type="text" name="username" placeholder="Username" autofocus required/>
+        <input class="mt-4 form-control" type="password" name="password" placeholder="Password" required/>
+        <button class="mt-4 btn btn-secondary" type="submit">Submit</button>
+    </form>
+
+    <span class="mt-4">Don't have an account? You can register <a href={% url "register" %}>here</a>.</span>
+    <span class="mt-2">Did you forget your password? You can reset it <a href={% url "password_reset_request" %}>here</a>.</span>
+</div>
+
+{% endblock content %}

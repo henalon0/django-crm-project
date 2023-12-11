@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="p-5 table-responsive">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {{ message.tags }} alert-dismissible fade show user-select-none" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <table class="table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email Address</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">City</th>
+            <th scope="col">State</th>
+            <th scope="col">Created At</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% if records %}
+            {% for record in records %}
+            <tr>
+                <td>{{ record.first_name }}</td>
+                <td>{{ record.last_name }}</td>
+                <td>{{ record.email }}</td>
+                <td>{{ record.phone }}</td>
+                <td>{{ record.city }}</td>
+                <td>{{ record.state }}</td>
+                <td>{{ record.created_at }}</td>
+                <td>
+                    <a class="m-2 btn btn-warning" href={% url "edit" record.id %}>Edit</a>
+                    <a class="m-2 btn btn-danger" href={% url "delete" record.id %}>Delete</a>
+                </td>
+            </tr>
+            {% endfor %}    
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
