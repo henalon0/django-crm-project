@@ -11,8 +11,7 @@ This Django project provides a simple web application for managing records, user
 3. [Installation](#installation)
 4. [Usage](#usage)
 5. [Dependencies](#dependencies)
-6. [Contributing](#contributing)
-7. [License](#license)
+6. [License](#license)
 
 ## Project Overview
 
